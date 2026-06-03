@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elyvance | Cart</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      .mobile-menu { display: none; }
+      .mobile-menu.open { display: flex; }
+    </style>
+  </head>
+  <body class="bg-zinc-50 text-zinc-900 antialiased">
+
+    <header
+      class="sticky top-0 z-50 bg-white/80 backdrop-blur-md  border-b border-zinc-100"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex justify-between items-center gap-6">
+        <a
+          href="index.html"
+          class="text-xl font-bold tracking-tighter text-zinc-900 shrink-0"
+          >ELYVANCE</a
+        >
+
+        <div
+          class="flex  items-center gap-3 border border-gray-300/70 px-5 py-2.5 rounded-full max-w-sm bg-white/60"
+        >
+          <i
+            class="fa-solid fa-magnifying-glass text-indigo-600 text-xs shrink-0"
+          ></i>
+          <input
+            type="text"
+            class="outline-none bg-transparent text-sm w-full search-bar"
+            onkeyup="ProductFilter()"
+            placeholder="Search products…"
+          />
+        </div>
+
+        <nav class="hidden md:block shrink-0">
+          <ul class="flex gap-7 text-sm font-medium items-center">
+            <li>
+              <a
+                href="products.html"
+                class="hover:text-black text-zinc-500 transition-colors"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a
+                href="about-services.html"
+                class="hover:text-black text-zinc-500 transition-colors"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="hover:text-black text-zinc-500 transition-colors"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="cart.html" class="relative">
+                <i class="fa-solid fa-cart-shopping text-indigo-600"></i>
+                <span
+                  id="cartCount"
+                  class="absolute -top-2 -right-2 text-xs font-bold text-indigo-600"
+                ></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div
+          class="hidden md:flex items-center gap-5 shrink-0 text-sm font-medium"
+        >
+          <a
+            href="login.html"
+            class="hover:text-black text-zinc-500 transition-colors"
+            >Log In</a
+          >
+          <a
+            href="signup.html"
+            class="bg-indigo-500 text-white px-4 py-1.5 rounded-full font-semibold hover:bg-indigo-700 transition-colors"
+            >Sign Up</a
+          >
+        </div>
+
+        <div class="flex items-center gap-4 md:hidden ml-auto">
+          <a href="cart.html" class="relative">
+            <i class="fa-solid fa-cart-shopping text-indigo-600"></i>
+            <span
+              id="cartCountMobile"
+              class="absolute -top-2 -right-2 text-xs font-bold text-indigo-600"
+            ></span>
+          </a>
+          <button
+            id="menuToggle"
+            class="text-zinc-700 p-1"
+            aria-label="Toggle menu"
+          >
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="mobile-menu flex-col gap-0 border-t border-zinc-100 bg-white md:hidden"
+      >
+        <a
+          href="products.html"
+          class="px-6 py-3 text-sm border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+          >Products</a
+        >
+        <a
+          href="about-services.html"
+          class="px-6 py-3 text-sm border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+          >Services</a
+        >
+        <a
+          href="contact.html"
+          class="px-6 py-3 text-sm border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+          >Contact</a
+        >
+        <div class="flex">
+          <a
+            href="login.html"
+            class="flex-1 px-6 py-3 text-sm text-center border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+            >Log In</a
+          >
+          <a
+            href="signup.html"
+            class="flex-1 px-6 py-3 text-sm font-bold text-center border-b border-zinc-50 text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+      <div class="bg-white shadow-lg rounded-2xl md:rounded-3xl flex flex-col overflow-hidden">
+        <div class="flex items-center justify-between p-5 sm:p-6 border-b border-slate-200">
+          <div>
+            <h2 class="text-xs font-bold text-blue-800 uppercase tracking-wider mb-1">Shopping Cart</h2>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Your selected items</h3>
+          </div>
+          <a href="products.html" class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-arrow-left text-xs"></i>
+            <span class="hidden sm:inline">Continue shopping</span>
+            <span class="sm:hidden">Shop</span>
+          </a>
+        </div>
+
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 sm:p-6 bg-white"></div>
+
+        <div id="cart-summary" class="p-5 sm:p-6 border-t border-slate-200 bg-white">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-slate-500 text-sm sm:text-base">Total Items</span>
+            <span id="total-items-count" class="font-bold text-slate-900 text-base sm:text-lg">0</span>
+          </div>
+          <div class="flex justify-between items-center mb-5 sm:mb-6">
+            <span class="text-slate-900 font-bold text-lg sm:text-xl">Total Price</span>
+            <span id="total-price-value" class="text-xl sm:text-2xl font-black text-slate-900">$0.00</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <button onclick="clearCart()" class="flex-1 py-3 px-4 border border-slate-300 rounded-xl text-slate-700 font-bold hover:bg-slate-50 transition-colors text-sm">
+              Clear cart
+            </button>
+            <button class="flex-1 py-3 px-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors text-sm">
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-white border-t border-zinc-100 py-16 md:py-20 mt-4 md:mt-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+        <div class="col-span-2 md:col-span-1 space-y-4 md:space-y-6">
+          <h3 class="font-bold tracking-tighter text-2xl">ELYVANCE</h3>
+          <p class="text-zinc-500 leading-relaxed text-sm">Elevating your everyday essentials with timeless design and uncompromising quality.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-xs mb-4 md:mb-6 uppercase tracking-[0.2em] text-zinc-400">Shop</h4>
+          <ul class="space-y-3 md:space-y-4 text-sm font-medium text-zinc-600">
+            <li><a href="products.html" class="hover:text-black transition-colors">All Products</a></li>
+            <li><a href="#" class="hover:text-black transition-colors">New Arrivals</a></li>
+            <li><a href="#" class="hover:text-black transition-colors">Best Sellers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-xs mb-4 md:mb-6 uppercase tracking-[0.2em] text-zinc-400">Company</h4>
+          <ul class="space-y-3 md:space-y-4 text-sm font-medium text-zinc-600">
+            <li><a href="#" class="hover:text-black transition-colors">About Us</a></li>
+            <li><a href="#" class="hover:text-black transition-colors">Sustainability</a></li>
+            <li><a href="#" class="hover:text-black transition-colors">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-xs mb-4 md:mb-6 uppercase tracking-[0.2em] text-zinc-400">Connect</h4>
+          <ul class="space-y-3 md:space-y-4 text-sm font-medium text-zinc-600">
+            <li><a href="#" class="hover:text-black transition-colors">Instagram</a></li>
+            <li><a href="#" class="hover:text-black transition-colors">Twitter</a></li>
+            <li><a href="#" class="hover:text-black transition-colors">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 mt-10 md:pt-16 md:mt-16 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-400 font-medium">
+        <p>© 2026 Elyvance Labs. All rights reserved.</p>
+        <div class="flex gap-6 md:gap-8">
+          <a href="#" class="hover:text-zinc-900">Privacy Policy</a>
+          <a href="#" class="hover:text-zinc-900">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    
+  </body>
+</html>

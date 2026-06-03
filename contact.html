@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elyvance | Contact</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+  </style>
+</head>
+<body class="bg-white text-zinc-900 selection:bg-indigo-100 selection:text-indigo-700">
+
+ <header
+      class="sticky top-0 z-50 bg-white/80 backdrop-blur-md  border-b border-zinc-100"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex justify-between items-center gap-6">
+        <a
+          href="index.html"
+          class="text-xl font-bold tracking-tighter text-zinc-900 shrink-0"
+          >ELYVANCE</a
+        >
+
+        <div
+          class="flex  items-center gap-3 border border-gray-300/70 px-5 py-2.5 rounded-full max-w-sm bg-white/60"
+        >
+          <i
+            class="fa-solid fa-magnifying-glass text-indigo-600 text-xs shrink-0"
+          ></i>
+          <input
+            type="text"
+            class="outline-none bg-transparent text-sm w-full search-bar"
+            onkeyup="ProductFilter()"
+            placeholder="Search products…"
+          />
+        </div>
+
+        <nav class="hidden md:block shrink-0">
+          <ul class="flex gap-7 text-sm font-medium items-center">
+            <li>
+              <a
+                href="products.html"
+                class="hover:text-black text-zinc-500 transition-colors"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a
+                href="about-services.html"
+                class="hover:text-black text-zinc-500 transition-colors"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="hover:text-black text-zinc-500 transition-colors"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="cart.html" class="relative">
+                <i class="fa-solid fa-cart-shopping text-indigo-600"></i>
+                <span
+                  id="cartCount"
+                  class="absolute -top-2 -right-2 text-xs font-bold text-indigo-600"
+                ></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div
+          class="hidden md:flex items-center gap-5 shrink-0 text-sm font-medium"
+        >
+          <a
+            href="login.html"
+            class="hover:text-black text-zinc-500 transition-colors"
+            >Log In</a
+          >
+          <a
+            href="signup.html"
+            class="bg-indigo-500 text-white px-4 py-1.5 rounded-full font-semibold hover:bg-indigo-700 transition-colors"
+            >Sign Up</a
+          >
+        </div>
+
+        <div class="flex items-center gap-4 md:hidden ml-auto">
+          <a href="cart.html" class="relative">
+            <i class="fa-solid fa-cart-shopping text-indigo-600"></i>
+            <span
+              id="cartCountMobile"
+              class="absolute -top-2 -right-2 text-xs font-bold text-indigo-600"
+            ></span>
+          </a>
+          <button
+            id="menuToggle"
+            class="text-zinc-700 p-1"
+            aria-label="Toggle menu"
+          >
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="mobile-menu flex-col gap-0 border-t border-zinc-100 bg-white md:hidden"
+      >
+        <a
+          href="products.html"
+          class="px-6 py-3 text-sm border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+          >Products</a
+        >
+        <a
+          href="about-services.html"
+          class="px-6 py-3 text-sm border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+          >Services</a
+        >
+        <a
+          href="contact.html"
+          class="px-6 py-3 text-sm border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+          >Contact</a
+        >
+        <div class="flex">
+          <a
+            href="login.html"
+            class="flex-1 px-6 py-3 text-sm text-center border-b border-zinc-50 font-medium text-zinc-600 hover:text-black hover:bg-zinc-50 transition-colors"
+            >Log In</a
+          >
+          <a
+            href="signup.html"
+            class="flex-1 px-6 py-3 text-sm font-bold text-center border-b border-zinc-50 text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20 lg:py-32">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+      <div class="space-y-10 md:space-y-12">
+        <div class="space-y-4 md:space-y-6">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-600 tracking-wide uppercase">
+            Contact Us
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 leading-[1.1]">
+            We'd love to <br class="hidden sm:block" />hear from you.
+          </h1>
+          <p class="text-base sm:text-lg text-zinc-500 leading-relaxed max-w-md">
+            Got a question, feedback, or just want to reach out? Send a message and we'll get back to you as soon as possible.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 sm:gap-8">
+          <div class="space-y-2 sm:space-y-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-indigo-600 text-sm">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h3 class="font-bold text-zinc-900 text-sm sm:text-base">Email</h3>
+            <p class="text-xs sm:text-sm text-zinc-500">hello@uglydude.dev</p>
+          </div>
+          <div class="space-y-2 sm:space-y-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-indigo-600 text-sm">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <h3 class="font-bold text-zinc-900 text-sm sm:text-base">Phone</h3>
+            <p class="text-xs sm:text-sm text-zinc-500">+234 800 000 0000</p>
+          </div>
+          <div class="space-y-2 sm:space-y-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-indigo-600 text-sm">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 class="font-bold text-zinc-900 text-sm sm:text-base">Location</h3>
+            <p class="text-xs sm:text-sm text-zinc-500">Lagos, Nigeria</p>
+          </div>
+          <div class="space-y-2 sm:space-y-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-indigo-600 text-sm">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h3 class="font-bold text-zinc-900 text-sm sm:text-base">Hours</h3>
+            <p class="text-xs sm:text-sm text-zinc-500">Mon – Fri: 9am – 5pm</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-zinc-50 p-6 sm:p-8 lg:p-12 rounded-[2rem] sm:rounded-[2.5rem] border border-zinc-100">
+        <form action="#" class="space-y-5 sm:space-y-6">
+          <div class="space-y-2">
+            <label for="name" class="text-sm font-semibold text-zinc-900 ml-1">Full Name</label>
+            <input type="text" id="name" placeholder="John Doe"
+              class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-white border border-zinc-200 rounded-2xl outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all placeholder:text-zinc-300 text-sm" />
+          </div>
+          <div class="space-y-2">
+            <label for="email" class="text-sm font-semibold text-zinc-900 ml-1">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com"
+              class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-white border border-zinc-200 rounded-2xl outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all placeholder:text-zinc-300 text-sm" />
+          </div>
+          <div class="space-y-2">
+            <label for="message" class="text-sm font-semibold text-zinc-900 ml-1">Message</label>
+            <textarea id="message" rows="5" placeholder="How can we help you?"
+              class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-white border border-zinc-200 rounded-2xl outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all placeholder:text-zinc-300 resize-none text-sm"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-indigo-600 text-white py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg shadow-xl shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 transition-all active:scale-[0.98]">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+    <footer class="bg-white border-t border-zinc-100 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+      <div class="col-span-2 md:col-span-1 space-y-4 md:space-y-6">
+        <h3 class="font-bold tracking-tighter text-2xl">ELYVANCE</h3>
+        <p class="text-zinc-500 leading-relaxed text-sm">Elevating your everyday essentials with timeless design and uncompromising quality.</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-xs mb-4 md:mb-6 uppercase tracking-[0.2em] text-zinc-400">Shop</h4>
+        <ul class="space-y-3 md:space-y-4 text-sm font-medium text-zinc-600">
+          <li><a href="products.html" class="hover:text-black transition-colors">All Products</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">New Arrivals</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">Best Sellers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-xs mb-4 md:mb-6 uppercase tracking-[0.2em] text-zinc-400">Company</h4>
+        <ul class="space-y-3 md:space-y-4 text-sm font-medium text-zinc-600">
+          <li><a href="#" class="hover:text-black transition-colors">About Us</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">Sustainability</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-xs mb-4 md:mb-6 uppercase tracking-[0.2em] text-zinc-400">Connect</h4>
+        <ul class="space-y-3 md:space-y-4 text-sm font-medium text-zinc-600">
+          <li><a href="#" class="hover:text-black transition-colors">Instagram</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">Twitter</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">Contact Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 mt-10 md:pt-16 md:mt-16 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-400 font-medium">
+      <p>© 2026 Elyvance Labs. All rights reserved.</p>
+      <div class="flex gap-6 md:gap-8">
+        <a href="#" class="hover:text-zinc-900">Privacy Policy</a>
+        <a href="#" class="hover:text-zinc-900">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  
+</body>
+</html>
