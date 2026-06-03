@@ -207,14 +207,26 @@
     </div>
   </main>
 
-  <script>
-    function handleSignup(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
+ <script>
+  function handleSignup(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (password !== confirmPassword) {
+      alert('Make sure you input the same password to confirm your password');
+    }else if(!isNaN(name)){
+      alert("Your name must not be in number")
+
+    }else {
       alert(`Welcome, ${name}! Your account has been created.`);
       window.location.href = 'login.html';
-    };
-  </script>
+    }
+  }
+</script>
   <script src="index.js"></script>
 </body>
 </html>
