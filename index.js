@@ -118,3 +118,20 @@ updateAllCartCounts();
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-xmark');
       });
+
+
+let mybutton = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    mybutton.classList.remove("hidden");
+  } else {
+    mybutton.classList.add("hidden");
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' }); 
+}
