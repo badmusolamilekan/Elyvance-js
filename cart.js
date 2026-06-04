@@ -86,7 +86,7 @@ function renderCart() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", renderCart);
+ renderCart();
 
 let initialCartLength = JSON.parse(localStorage.getItem("mycart")) || [];
 document.querySelector("#cartCount").innerHTML = initialCartLength.reduce(
